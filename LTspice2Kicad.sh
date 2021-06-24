@@ -3,7 +3,7 @@
 echo creating KiCAD compatible LTspice libraries
 
 python lib_LTspice2Kicad.py "."
-python lib_LTspice2Kicad.py "/home/a/Documents/LTspiceXVII/lib/sym"
+python lib_LTspice2Kicad.py "~/Documents/LTspiceXVII/lib/sym"
 python lib_LTspice2Kicad.py "~/Documents/LTspiceXVII/lib/sym/Comparators"
 python lib_LTspice2Kicad.py "~/Documents/LTspiceXVII/lib/sym/devices"
 python lib_LTspice2Kicad.py "~/Documents/LTspiceXVII/lib/sym/Digital"
