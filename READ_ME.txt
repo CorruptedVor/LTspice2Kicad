@@ -1,17 +1,10 @@
-
-   LTspice to Kicad schematic conversion
-
-   Written by Laurent CHARRIER
-   Last update : 30 Oct. 2017
-   Based on : Python on Windows OS
-   
 Here are some python scripts to transfer symbols and schematics from LTspice to Kicad.
 The goal under that script is to design and simulate under LTspice and to automatically transfer the circuit under Kicad to draw the PCB.
 For that, you need to have Python installed and in your path under windows only because LTspice is only under Windows.
 Note that I use and tested the script with Python 3.6 , LTspiceXVII and Kicad 4.0.7  (for other versions, some minor script(s) changes may be needed)
 
 The method is based on those 2 steps in the directory that contains the LTspice symbols (*.asy) and schematic (*.asc)
-1- run : LTspice2Kicad.bat
+1- run : LTspice2Kicad.sh
 2- run : python sch_Ltspice2Kicad.py your_schematic.asc
 
 The first step 1- is based on the python script lib_LTspice2Kicad.py and creates many libraries based LTspice symbols library, and also creates a library with all the symbols of the current directory.

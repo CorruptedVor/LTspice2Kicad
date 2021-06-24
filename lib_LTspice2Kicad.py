@@ -25,6 +25,7 @@
 #
 
 import sys,re,os,codecs
+from pathlib import Path
 
 # function to find locaion of each space character in each line
 def find_all(a_str, sub):
@@ -35,7 +36,7 @@ def find_all(a_str, sub):
         yield start
         start += len(sub) # use start += 1 to find overlapping matches
 
-directory = sys.argv[1]
+directory = Path(sys.argv[1]).expanduser()
 # out_file = sys.argv[2]
 if directory=="." : directory = os.getcwd()
 dir = os.listdir(directory)
@@ -43,14 +44,13 @@ comp = []
 for component in dir:
 	if (component[-4:]==".asy") : comp.append(component)
 
-indir = directory.split("\\")
-out_file = "LTspice_" + indir[len(indir)-1] + ".lib"
+out_file = directory.parent / (directory.name + '.lib')
 outfl = codecs.open(out_file,"w",'utf-8');
 outfl.write("EESchema-LIBRARY Version 2.3\n#encoding utf-8\n#\n")
 
 for component in comp :
 	print(component)
-	in_file = directory + "\\" + component
+	in_file = directory.parent / (directory.name + '/' + component ) 
 
 	if (component == "ADA4807.asy" or component == "ADA4895.asy") :  # I don't know how to detect automatically the file encoding UTF-16-LE with Python
 		infl = codecs.open(in_file,"r",'utf-16-le');
